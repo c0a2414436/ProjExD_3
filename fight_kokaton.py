@@ -101,9 +101,6 @@ class Score:
         self.img = self.fonto.render(f"Score: {self.score}", True, self.color)
         screen.blit(self.img, self.rct)
 
-    def add(self, amount: int = 1):
-        self.score += amount
-
 
 class Beam:
     """
@@ -162,6 +159,8 @@ class Bomb:
 
 
 def main():
+    def add(self, amount: int = 1):
+        self.score += amount
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
     bg_img = pg.image.load("fig/pg_bg.jpg")
@@ -180,10 +179,6 @@ def main():
             if event.type == pg.QUIT:
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
-<<<<<<< HEAD
-                # スペースキー押下でBeamクラスのインスタンス生成
-=======
->>>>>>> score
                 beams.append(Beam(bird))
                 beam = Beam(bird)            
         screen.blit(bg_img, [0, 0])
@@ -205,13 +200,9 @@ def main():
                     beam = None
                     bombs[i] = None
                     bird.change_img(6, screen)
-                    score.add(1)
+                    score.score += 1
                     beam.rct.left = WIDTH + 100  
             bombs = [bomb for bomb in bombs if bomb is not None]
-<<<<<<< HEAD
-
-=======
->>>>>>> score
 
 
         key_lst = pg.key.get_pressed()
