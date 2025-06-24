@@ -180,7 +180,10 @@ def main():
             if event.type == pg.QUIT:
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
+<<<<<<< HEAD
                 # スペースキー押下でBeamクラスのインスタンス生成
+=======
+>>>>>>> score
                 beams.append(Beam(bird))
                 beam = Beam(bird)            
         screen.blit(bg_img, [0, 0])
@@ -205,11 +208,20 @@ def main():
                     score.add(1)
                     beam.rct.left = WIDTH + 100  
             bombs = [bomb for bomb in bombs if bomb is not None]
+<<<<<<< HEAD
 
+=======
+>>>>>>> score
 
 
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
+        new_beams = []
+        for beam in beams:
+            beam.update(screen)
+            if check_bound(beam.rct)[0]: 
+                new_beams.append(beam)
+            beams = new_beams
         if beam is not None:  # ビームが存在するときだけ
            beam.update(screen) 
         for bomb in bombs:
